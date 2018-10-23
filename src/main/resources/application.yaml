@@ -1,0 +1,30 @@
+server:
+  contextPath: /
+
+#禁用springsecurity缺省配置
+security:
+    basic:
+       enabled: false
+management:
+    security:
+       enabled: false
+
+#数据库
+spring:
+    datasource:
+        primary:
+            jdbc-url: jdbc:mysql://192.168.105.18:3306/idg_test_db?useUnicode=true&characterEncoding=utf8
+            driver-class-name: com.mysql.jdbc.Driver
+            username: idg_test_db_user
+            password: idg_test_db_user
+
+        secondary:
+            jdbc-url: jdbc:mysql://47.52.227.26:3306/sso_test?useUnicode=true&characterEncoding=utf-8
+            driver-class-name: com.mysql.jdbc.Driver
+            username: hjs
+            password: hjs
+
+
+
+
+

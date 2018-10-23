@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.idgcapital.rfund.primary.dao.TermInvMapper" >
+  <resultMap id="BaseResultMap" type="com.idgcapital.rfund.primary.model.TermInv" >
+    <id column="term_id" property="termId" jdbcType="CHAR" />
+    <result column="proj_id" property="projId" jdbcType="CHAR" />
+    <result column="bus_type" property="busType" jdbcType="VARCHAR" />
+    <result column="fund_id" property="fundId" jdbcType="CHAR" />
+    <result column="inv_round" property="invRound" jdbcType="VARCHAR" />
+    <result column="proj_code" property="projCode" jdbcType="VARCHAR" />
+    <result column="debt_term_id" property="debtTermId" jdbcType="CHAR" />
+    <result column="term_sign_date" property="termSignDate" jdbcType="TIMESTAMP" />
+    <result column="doc_term_id" property="docTermId" jdbcType="CHAR" />
+    <result column="spv_id" property="spvId" jdbcType="CHAR" />
+    <result column="debt_to_equity" property="debtToEquity" jdbcType="CHAR" />
+    <result column="inv_tool_second" property="invToolSecond" jdbcType="VARCHAR" />
+    <result column="term_inv_amt" property="termInvAmt" jdbcType="DOUBLE" />
+    <result column="lead_follow" property="leadFollow" jdbcType="VARCHAR" />
+    <result column="inv_mode" property="invMode" jdbcType="VARCHAR" />
+    <result column="add_register_amt" property="addRegisterAmt" jdbcType="DOUBLE" />
+    <result column="parallel_fund_amt" property="parallelFundAmt" jdbcType="DOUBLE" />
+    <result column="total_inv_amt" property="totalInvAmt" jdbcType="DOUBLE" />
+    <result column="orig_curr_inv_amt" property="origCurrInvAmt" jdbcType="DOUBLE" />
+    <result column="orig_curr_id" property="origCurrId" jdbcType="VARCHAR" />
+    <result column="company_nature" property="companyNature" jdbcType="VARCHAR" />
+    <result column="loan_term" property="loanTerm" jdbcType="VARCHAR" />
+    <result column="billing_date" property="billingDate" jdbcType="DATE" />
+    <result column="is_guarantee" property="isGuarantee" jdbcType="VARCHAR" />
+    <result column="guarantee_desc" property="guaranteeDesc" jdbcType="VARCHAR" />
+    <result column="debt_income_propor" property="debtIncomePropor" jdbcType="DOUBLE" />
+    <result column="change_plan_date" property="changePlanDate" jdbcType="DATE" />
+    <result column="change_plan_amt" property="changePlanAmt" jdbcType="DOUBLE" />
+    <result column="debt_total_amt" property="debtTotalAmt" jdbcType="DOUBLE" />
+    <result column="debt_income_amt" property="debtIncomeAmt" jdbcType="DOUBLE" />
+    <result column="debt_remain_amt" property="debtRemainAmt" jdbcType="DOUBLE" />
+    <result column="lead_stock_price" property="leadStockPrice" jdbcType="DECIMAL" />
+    <result column="com_total_amt" property="comTotalAmt" jdbcType="DOUBLE" />
+    <result column="warrants_date" property="warrantsDate" jdbcType="DATE" />
+    <result column="warrants_desc" property="warrantsDesc" jdbcType="VARCHAR" />
+    <result column="parallel_unrealized_cost" property="parallelUnrealizedCost" jdbcType="DOUBLE" />
+    <result column="unrealized_cost" property="unrealizedCost" jdbcType="DOUBLE" />
+    <result column="exit_term_id" property="exitTermId" jdbcType="VARCHAR" />
+    <result column="valid_flag" property="validFlag" jdbcType="CHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="CHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="edit_by" property="editBy" jdbcType="CHAR" />
+    <result column="edit_date" property="editDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from term_inv
+    where term_id = #{termId,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.idgcapital.rfund.primary.model.TermInv" >
+    insert into term_inv (term_id, proj_id, bus_type, 
+      fund_id, inv_round, proj_code, 
+      debt_term_id, term_sign_date, doc_term_id, 
+      spv_id, debt_to_equity, inv_tool_second, 
+      term_inv_amt, lead_follow, inv_mode, 
+      add_register_amt, parallel_fund_amt, total_inv_amt, 
+      orig_curr_inv_amt, orig_curr_id, company_nature, 
+      loan_term, billing_date, is_guarantee, 
+      guarantee_desc, debt_income_propor, change_plan_date, 
+      change_plan_amt, debt_total_amt, debt_income_amt, 
+      debt_remain_amt, lead_stock_price, com_total_amt, 
+      warrants_date, warrants_desc, parallel_unrealized_cost, 
+      unrealized_cost, exit_term_id, valid_flag, 
+      remarks, create_by, create_date, 
+      edit_by, edit_date)
+    values (#{termId,jdbcType=CHAR}, #{projId,jdbcType=CHAR}, #{busType,jdbcType=VARCHAR}, 
+      #{fundId,jdbcType=CHAR}, #{invRound,jdbcType=VARCHAR}, #{projCode,jdbcType=VARCHAR}, 
+      #{debtTermId,jdbcType=CHAR}, #{termSignDate,jdbcType=TIMESTAMP}, #{docTermId,jdbcType=CHAR}, 
+      #{spvId,jdbcType=CHAR}, #{debtToEquity,jdbcType=CHAR}, #{invToolSecond,jdbcType=VARCHAR}, 
+      #{termInvAmt,jdbcType=DOUBLE}, #{leadFollow,jdbcType=VARCHAR}, #{invMode,jdbcType=VARCHAR}, 
+      #{addRegisterAmt,jdbcType=DOUBLE}, #{parallelFundAmt,jdbcType=DOUBLE}, #{totalInvAmt,jdbcType=DOUBLE}, 
+      #{origCurrInvAmt,jdbcType=DOUBLE}, #{origCurrId,jdbcType=VARCHAR}, #{companyNature,jdbcType=VARCHAR}, 
+      #{loanTerm,jdbcType=VARCHAR}, #{billingDate,jdbcType=DATE}, #{isGuarantee,jdbcType=VARCHAR}, 
+      #{guaranteeDesc,jdbcType=VARCHAR}, #{debtIncomePropor,jdbcType=DOUBLE}, #{changePlanDate,jdbcType=DATE}, 
+      #{changePlanAmt,jdbcType=DOUBLE}, #{debtTotalAmt,jdbcType=DOUBLE}, #{debtIncomeAmt,jdbcType=DOUBLE}, 
+      #{debtRemainAmt,jdbcType=DOUBLE}, #{leadStockPrice,jdbcType=DECIMAL}, #{comTotalAmt,jdbcType=DOUBLE}, 
+      #{warrantsDate,jdbcType=DATE}, #{warrantsDesc,jdbcType=VARCHAR}, #{parallelUnrealizedCost,jdbcType=DOUBLE}, 
+      #{unrealizedCost,jdbcType=DOUBLE}, #{exitTermId,jdbcType=VARCHAR}, #{validFlag,jdbcType=CHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{createBy,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{editBy,jdbcType=CHAR}, #{editDate,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.idgcapital.rfund.primary.model.TermInv" >
+    update term_inv
+    set proj_id = #{projId,jdbcType=CHAR},
+      bus_type = #{busType,jdbcType=VARCHAR},
+      fund_id = #{fundId,jdbcType=CHAR},
+      inv_round = #{invRound,jdbcType=VARCHAR},
+      proj_code = #{projCode,jdbcType=VARCHAR},
+      debt_term_id = #{debtTermId,jdbcType=CHAR},
+      term_sign_date = #{termSignDate,jdbcType=TIMESTAMP},
+      doc_term_id = #{docTermId,jdbcType=CHAR},
+      spv_id = #{spvId,jdbcType=CHAR},
+      debt_to_equity = #{debtToEquity,jdbcType=CHAR},
+      inv_tool_second = #{invToolSecond,jdbcType=VARCHAR},
+      term_inv_amt = #{termInvAmt,jdbcType=DOUBLE},
+      lead_follow = #{leadFollow,jdbcType=VARCHAR},
+      inv_mode = #{invMode,jdbcType=VARCHAR},
+      add_register_amt = #{addRegisterAmt,jdbcType=DOUBLE},
+      parallel_fund_amt = #{parallelFundAmt,jdbcType=DOUBLE},
+      total_inv_amt = #{totalInvAmt,jdbcType=DOUBLE},
+      orig_curr_inv_amt = #{origCurrInvAmt,jdbcType=DOUBLE},
+      orig_curr_id = #{origCurrId,jdbcType=VARCHAR},
+      company_nature = #{companyNature,jdbcType=VARCHAR},
+      loan_term = #{loanTerm,jdbcType=VARCHAR},
+      billing_date = #{billingDate,jdbcType=DATE},
+      is_guarantee = #{isGuarantee,jdbcType=VARCHAR},
+      guarantee_desc = #{guaranteeDesc,jdbcType=VARCHAR},
+      debt_income_propor = #{debtIncomePropor,jdbcType=DOUBLE},
+      change_plan_date = #{changePlanDate,jdbcType=DATE},
+      change_plan_amt = #{changePlanAmt,jdbcType=DOUBLE},
+      debt_total_amt = #{debtTotalAmt,jdbcType=DOUBLE},
+      debt_income_amt = #{debtIncomeAmt,jdbcType=DOUBLE},
+      debt_remain_amt = #{debtRemainAmt,jdbcType=DOUBLE},
+      lead_stock_price = #{leadStockPrice,jdbcType=DECIMAL},
+      com_total_amt = #{comTotalAmt,jdbcType=DOUBLE},
+      warrants_date = #{warrantsDate,jdbcType=DATE},
+      warrants_desc = #{warrantsDesc,jdbcType=VARCHAR},
+      parallel_unrealized_cost = #{parallelUnrealizedCost,jdbcType=DOUBLE},
+      unrealized_cost = #{unrealizedCost,jdbcType=DOUBLE},
+      exit_term_id = #{exitTermId,jdbcType=VARCHAR},
+      valid_flag = #{validFlag,jdbcType=CHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=CHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      edit_by = #{editBy,jdbcType=CHAR},
+      edit_date = #{editDate,jdbcType=TIMESTAMP}
+    where term_id = #{termId,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select term_id, proj_id, bus_type, fund_id, inv_round, proj_code, debt_term_id, term_sign_date, 
+    doc_term_id, spv_id, debt_to_equity, inv_tool_second, term_inv_amt, lead_follow, 
+    inv_mode, add_register_amt, parallel_fund_amt, total_inv_amt, orig_curr_inv_amt, 
+    orig_curr_id, company_nature, loan_term, billing_date, is_guarantee, guarantee_desc, 
+    debt_income_propor, change_plan_date, change_plan_amt, debt_total_amt, debt_income_amt, 
+    debt_remain_amt, lead_stock_price, com_total_amt, warrants_date, warrants_desc, parallel_unrealized_cost, 
+    unrealized_cost, exit_term_id, valid_flag, remarks, create_by, create_date, edit_by, 
+    edit_date
+    from term_inv
+    where term_id = #{termId,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select term_id, proj_id, bus_type, fund_id, inv_round, proj_code, debt_term_id, term_sign_date, 
+    doc_term_id, spv_id, debt_to_equity, inv_tool_second, term_inv_amt, lead_follow, 
+    inv_mode, add_register_amt, parallel_fund_amt, total_inv_amt, orig_curr_inv_amt, 
+    orig_curr_id, company_nature, loan_term, billing_date, is_guarantee, guarantee_desc, 
+    debt_income_propor, change_plan_date, change_plan_amt, debt_total_amt, debt_income_amt, 
+    debt_remain_amt, lead_stock_price, com_total_amt, warrants_date, warrants_desc, parallel_unrealized_cost, 
+    unrealized_cost, exit_term_id, valid_flag, remarks, create_by, create_date, edit_by, 
+    edit_date
+    from term_inv
+  </select>
+</mapper>
